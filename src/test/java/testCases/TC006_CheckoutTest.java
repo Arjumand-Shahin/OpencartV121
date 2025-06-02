@@ -33,9 +33,22 @@ public class TC006_CheckoutTest extends BaseClass {
 			cp.enterEmail(prop.getProperty("emailAddress"));
 			cp.enterPassword(prop.getProperty("password"));
 			cp.clickLogin();
-			String textVerify=cp.verifyMessageHeading();
-			Assert.assertEquals(textVerify, "Checkout");
-			
+			Thread.sleep(2000);
+			cp.clickExistingAddressBillingDetails();
+			Thread.sleep(2000);
+			cp.clickContinueBillingBtn();
+			Thread.sleep(2000);
+			cp.clickContinueDeliveryBtn();
+			Thread.sleep(2000);
+			cp.clickDeliveryMethodContinue();
+			Thread.sleep(2000);
+			cp.clickAgreeChkbox();
+			cp.clickPaymentMethodContinue();
+			Thread.sleep(2000);
+			cp.clickConfirmOrder();
+			Thread.sleep(2000);
+			String text=cp.verifyMessageHeading();
+			Assert.assertEquals(text, "Your order has been placed!");
 			
 		}catch(Exception e) {
 			Assert.fail();

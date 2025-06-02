@@ -21,7 +21,31 @@ public class CheckoutPage extends BasePage{
 	@FindBy(xpath="//input[@id='button-login']")
 	WebElement loginBtn;
 	
-	@FindBy(xpath="//h1[text()='Checkout']")
+	@FindBy(xpath="//input[@value='existing']")
+	WebElement existingAddressBillingDetails;
+	
+	@FindBy(xpath="//input[@id='button-payment-address']")
+	WebElement continueBillingBtn;
+	
+	@FindBy(xpath="input[value='existing'][name='shipping_address']")
+	WebElement existingAddressDeliveryDetails;
+	
+	@FindBy(xpath="//input[@id='button-shipping-address']")
+	WebElement continueDeliveryBtn;
+	
+	@FindBy(xpath="//input[@id='button-shipping-method']")
+	WebElement deliveryMethodContinue;
+	
+	@FindBy(xpath="//input[@name='agree']")
+	WebElement agreeCheckbox;
+	
+	@FindBy(xpath="//input[@id='button-payment-method']")
+	WebElement paymentMethodContinue;
+	
+	@FindBy(xpath="//input[@id='button-confirm']")
+	WebElement confirmOrderBtn;
+	
+	@FindBy(xpath="//h1[normalize-space()='Your order has been placed!']")
 	WebElement msgHeading;
 	
 	public void enterEmail(String email) {
@@ -36,6 +60,34 @@ public class CheckoutPage extends BasePage{
 		loginBtn.click();
 	}
 	
+	public void clickExistingAddressBillingDetails() {
+		existingAddressBillingDetails.click();
+	}
+	
+	public void clickContinueBillingBtn() {
+		continueBillingBtn.click();
+	}
+	
+	public void clickContinueDeliveryBtn() {
+		continueDeliveryBtn.click();
+	}
+	
+	public void clickDeliveryMethodContinue() {
+		deliveryMethodContinue.click();
+	}
+	
+	public void clickAgreeChkbox() {
+		agreeCheckbox.click();
+	}
+	
+	public void clickPaymentMethodContinue() {
+		paymentMethodContinue.click();
+	}
+	
+	public void clickConfirmOrder() {
+		confirmOrderBtn.click();
+	}
+
 	public String verifyMessageHeading() {
 		try {
 			return msgHeading.getText();
@@ -45,5 +97,4 @@ public class CheckoutPage extends BasePage{
 		
 	}
 	
-
 }
